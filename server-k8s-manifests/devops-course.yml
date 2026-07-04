@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-course
+  labels:
+    app: devops-course
+    release-date: RELEASE-DATE
+  namespace: devops-course
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-course
+  template:
+    metadata:
+      labels:
+        app: devops-course
+        svc: frontend
+        release-date: RELEASE-DATE
+    spec:
+      containers:
+      - name: devops-course-server
+        image: golem84/devops-course:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-devops
+  labels:
+    app: devops-course
+  namespace: devops-course
+spec:
+  type: LoadBalancer
+  selector:
+    app: devops-course
+    svc: frontend
+  ports:
+  - port: 12345
+    targetPort: 8000
+  externalIPs:
+    - 10.0.2.15
