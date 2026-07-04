@@ -8,7 +8,7 @@ PORT = 8000
 class TestMe():
     """Класс для тестирования портов и базовой логики."""
 
-    def take_five(self):
+    def take_four(self):
         """Возвращает тестовое число 4."""
         return 4
     def port(self):
