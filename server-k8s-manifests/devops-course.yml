@@ -4,7 +4,7 @@ metadata:
   name: devops-course
   labels:
     app: devops-course
-    release-date: RELEASE-DATE
+    release-date: s1783280532
   namespace: devops-course
 spec:
   replicas: 1
@@ -16,7 +16,7 @@ spec:
       labels:
         app: devops-course
         svc: frontend
-        release-date: RELEASE-DATE
+        release-date: s1783280532
     spec:
       containers:
       - name: devops-course-server
