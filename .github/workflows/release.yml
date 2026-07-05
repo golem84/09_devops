@@ -28,13 +28,14 @@ jobs:
           context: ./server/
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/devops-course:latest
+
   touch-k8s-manifest:
     needs: [ push_to_registry ]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Insert release date
-        run: 'sed -i "s/release-date: .*$/release-date: s`date +%s`/g" ./server-k8s-manifests/devops-cource.yml'
+        run: 'sed -i "s/release-date: .*$/release-date: s`date +%s`/g" ./server-k8s-manifests/devops-course.yml'
 
       - name: Commit manifest
         run: |
