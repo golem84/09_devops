@@ -18,3 +18,6 @@ connect to repo via ssh from argocd
 
 create application and sync in cluster
 ![alt text](./img/create-app-in-argocd.png)
+
+update deployment to version 2
+![alt text](./img/ver2-deployment.png)
