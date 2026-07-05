@@ -21,7 +21,7 @@ spec:
       containers:
       - name: devops-course-server
         image: golem84/devops-course:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
 ---
