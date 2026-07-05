@@ -334,18 +334,20 @@ Hello! I'm version 2
 Наблюдаем процесс в ArgoCD: старые версии получают статус Terminated, новые - Healthy  
 ![alt text](./img/ver2-deployment.png)
 
-Открываем доступ к сервису из внешней сети: 
+Открываем доступ к сервису из внешней сети и проверяем в командной строке: 
 ```bash
-$ minikube service argocd-server -n argocd
-┌───────────┬───────────────┬─────────────┬───────────────────────────┐
-│ NAMESPACE │     NAME      │ TARGET PORT │            URL            │
-├───────────┼───────────────┼─────────────┼───────────────────────────┤
-│ argocd    │ argocd-server │ http/80     │ http://192.168.49.2:30645 │
-│           │               │ https/443   │ http://192.168.49.2:31468 │
-└───────────┴───────────────┴─────────────┴───────────────────────────┘
-[argocd argocd-server http/80
-https/443 http://192.168.49.2:30645
-http://192.168.49.2:31468]
+sysadmin@master:~$ minikube service service-devops -n devops-course
+┌───────────────┬────────────────┬─────────────┬───────────────────────────┐
+│   NAMESPACE   │      NAME      │ TARGET PORT │            URL            │
+├───────────────┼────────────────┼─────────────┼───────────────────────────┤
+│ devops-course │ service-devops │ 12345       │ http://192.168.49.2:32157 │
+└───────────────┴────────────────┴─────────────┴───────────────────────────┘
+🎉  Opening service devops-course/service-devops in default browser...
+👉  http://192.168.49.2:32157
+sysadmin@master:~$
+sysadmin@master:~$
+sysadmin@master:~$ curl http://192.168.49.2:32157
+Hello! I'm version 2
 ```
 Проверяем работу приложения из браузера хоста Windows  
 ![alt text](./img/check-v2-browser.png)  
